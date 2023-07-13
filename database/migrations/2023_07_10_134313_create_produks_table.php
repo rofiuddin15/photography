@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->integer('stok');
             $table->bigInteger('harga');
-            $table->integer('diskon');
+            $table->integer('diskon')->nullable();
             $table->timestamps();
         });
     }
