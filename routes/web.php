@@ -14,8 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeDepanController::class, 'index']);
-
-Route::get('/detil-produk', function() {
-    return view('depan.detil_produk');
-});
+Route::get('/', [HomeDepanController::class, 'index'])->name('home');
+Route::get('/produk/{id}/detil', [HomeDepanController::class, 'show'])->name('detil');

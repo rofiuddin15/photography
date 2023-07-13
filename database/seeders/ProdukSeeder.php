@@ -14,7 +14,6 @@ class ProdukSeeder extends Seeder
     public function run(): void
     {
         Produk::create([
-            'kategori_id' => 1,
             'nama' => 'Paket Mantenan',
             'deskripsi' => 'ini adalah paket lengkap dari dinasaurus',
             'stok' => 5,

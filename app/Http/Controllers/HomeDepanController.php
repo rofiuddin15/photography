@@ -15,4 +15,11 @@ class HomeDepanController extends Controller
 
         return view('depan.home', compact(['data', 'last']));
     }
+
+    public function show($id)
+    {
+        $data = Produk::findOrFail($id);
+
+        return view('depan.detil_produk', compact('data'));
+    }
 }

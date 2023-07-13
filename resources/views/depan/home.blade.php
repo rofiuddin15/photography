@@ -11,50 +11,24 @@
                         <div class="categories__text">
                             <h1>{{ $last->nama }}</h1>
                             <p>{{ $last->deskripsi }}</p>
-                            <a href="#">Shop now</a>
+                            <a href="{{ route('detil', $last->id) }}">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                            <div class="categories__item set-bg"
-                                data-setbg="{{ asset('depan/img/categories/category-2.jpg') }}">
-                                <div class="categories__text">
-                                    <h4>Men’s fashion</h4>
-                                    <p>358 items</p>
-                                    <a href="detil-produk">Lihat lebih lengkap</a>
+                        @foreach ($data->slice(1, 4) as $item)
+                            <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                                <div class="categories__item set-bg"
+                                    data-setbg="{{ asset('depan/img/categories/category-2.jpg') }}">
+                                    <div class="categories__text">
+                                        <h4>{{ $item->nama }}</h4>
+                                        <p>Stok {{ $item->stok }}</p>
+                                        <a href="{{ route('detil', $item->id) }}">Selengkapnya...</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                            <div class="categories__item set-bg"
-                                data-setbg="{{ asset('depan/img/categories/category-3.jpg') }}">
-                                <div class="categories__text">
-                                    <h4>Kid’s fashion</h4>
-                                    <p>273 items</p>
-                                    <a href="#">Shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                            <div class="categories__item set-bg" data-setbg="img/categories/category-4.jpg">
-                                <div class="categories__text">
-                                    <h4>Cosmetics</h4>
-                                    <p>159 items</p>
-                                    <a href="#">Shop now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                            <div class="categories__item set-bg" data-setbg="img/categories/category-5.jpg">
-                                <div class="categories__text">
-                                    <h4>Accessories</h4>
-                                    <p>792 items</p>
-                                    <a href="#">Shop now</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -68,7 +42,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4">
                     <div class="section-title">
-                        <h4>New product</h4>
+                        <h4>Produk Terbaru</h4>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8">
@@ -85,10 +59,10 @@
             <div class="row property__gallery">
                 <div class="col-lg-3 col-md-4 col-sm-6 mix women">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{{ asset('depan/img/product/product-1.jpg') }}">
                             <div class="label new">New</div>
                             <ul class="product__hover">
-                                <li><a href="img/product/product-1.jpg" class="image-popup"><span
+                                <li><a href="{{ asset('depan/img/product/product-1.jpg') }}" class="image-popup"><span
                                             class="arrow_expand"></span></a></li>
                                 <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                                 <li><a href="#"><span class="icon_bag_alt"></span></a></li>
