@@ -11,7 +11,7 @@
                         <div class="categories__text">
                             <h1>{{ $last->nama }}</h1>
                             <p>{{ $last->deskripsi }}</p>
-                            <a href="{{ route('detil', $last->id) }}">Pesan Sekarang</a>
+                            <a href="{{ route('home.detil', $last->id) }}">Pesan Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                                     <div class="categories__text">
                                         <h4>{{ $item->nama }}</h4>
                                         <p>Stok {{ $item->stok }}</p>
-                                        <a href="{{ route('detil', $item->id) }}">Selengkapnya...</a>
+                                        <a href="{{ route('home.detil', $item->id) }}">Selengkapnya...</a>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix men">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-2.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{{ asset('depan/img/product/product-2.jpg') }}">
                             <ul class="product__hover">
                                 <li><a href="img/product/product-2.jpg" class="image-popup"><span
                                             class="arrow_expand"></span></a></li>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6 mix accessories">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/product-3.jpg">
+                        <div class="product__item__pic set-bg" data-setbg="{{ asset('depan/img/product/product-3.jpg') }}">
                             <div class="label stockout">out of stock</div>
                             <ul class="product__hover">
                                 <li><a href="img/product/product-3.jpg" class="image-popup"><span
