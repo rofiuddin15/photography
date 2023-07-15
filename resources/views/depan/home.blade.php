@@ -48,11 +48,9 @@
                 <div class="col-lg-8 col-md-8">
                     <ul class="filter__controls">
                         <li class="active" data-filter="*">All</li>
-                        <li data-filter=".women">Women’s</li>
-                        <li data-filter=".men">Men’s</li>
-                        <li data-filter=".kid">Kid’s</li>
-                        <li data-filter=".accessories">Accessories</li>
-                        <li data-filter=".cosmetic">Cosmetics</li>
+                        @foreach ($kat as $category)
+                            <li data-filter=".{{ $category->nama }}">{{ $category->nama }}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>

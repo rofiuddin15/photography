@@ -11,9 +11,7 @@
                     <ul>
                         <li class="active"><a href="/">Beranda</a></li>
                         <li class=""><a href="#">Produk</a></li>
-                        <li class=""><a href="#">Pages</a>
-                        <li class=""><a href="./blog.html">Blog</a></li>
-                        <li class=""><a href="">Contact</a></li>
+                        <li class=""><a href="">Kontak</a></li>
                     </ul>
                 </nav>
             </div>
