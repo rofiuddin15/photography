@@ -18,14 +18,16 @@
             <div class="col-lg-3">
                 <div class="header__right">
                     <div class="header__right__auth">
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        @auth
+                            <a href="#">{{ Auth::user()->name }}</a>
+                            <a href="javascript::void(0)" class="logout">Keluar</a>
+                        @else
+                            <a href="{{ route('login') }}">Masuk</a>
+                            <a href="{{ route('register') }}">Daftar</a>
+                        @endauth
                     </div>
                     <ul class="header__right__widget">
-                        <li><span class="icon_search search-switch"></span></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span>
-                                <div class="tip">2</div>
-                            </a></li>
+
                         <li><a href="#"><span class="icon_bag_alt"></span>
                                 <div class="tip">2</div>
                             </a></li>

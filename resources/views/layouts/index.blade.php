@@ -8,6 +8,7 @@
     <title>Dashboard - NiceAdmin Bootstrap Template</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicons -->
     <link href="{{ asset('admin/img/favicon.png') }}" rel="icon">
@@ -22,11 +23,11 @@
     <!-- Vendor CSS Files -->
     <link href="{{ asset('admin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="admin/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="admin/vendor/quill/quill.snow.css" rel="stylesheet">
-    <link href="admin/vendor/quill/quill.bubble.css" rel="stylesheet">
-    <link href="admin/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="admin/vendor/simple-datatables/style.css" rel="stylesheet">
+    <link href="{{ asset('admin/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
@@ -74,6 +75,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
+    <script src="{{ asset('admin/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/apexcharts/apexcharts.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('admin/vendor/chart.js/chart.umd.js') }}"></script>
@@ -85,6 +87,25 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('admin/js/main.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.logout').on('click', function() {
+                // console.log('keluar');
+                let TOKEN = $("meta[name='csrf-token']").attr("content");
+                $.ajax({
+                    url: "{{ route('logout') }}",
+                    type: 'POST',
+                    data: {
+                        '_token': TOKEN,
+                    },
+                    success: function(res) {
+                        location.reload();
+                    }
+                })
+            })
+        })
+    </script>
 
 </body>
 

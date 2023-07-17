@@ -11,7 +11,7 @@ class HomeDepanController extends Controller
     //
     public function index()
     {
-        $data = Produk::all();
+        $data = Produk::with('kategori')->get();
         $last = Produk::latest()->first();
         $kat = Kategori::all();
 

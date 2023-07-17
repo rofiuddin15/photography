@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        return view('admin.produk.add');
+        $data = Kategori::all();
+        return view('admin.produk.add', compact('data'));
     }
 
     /**

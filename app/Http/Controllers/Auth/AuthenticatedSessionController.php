@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('depan.login');
     }
 
     /**
@@ -29,7 +29,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $userLogin = auth()->user();
+
+        if ($userLogin->role == 'user') {
+            return redirect()->intended(RouteServiceProvider::HOME);
+
+        } else {
+            return redirect()->intended(RouteServiceProvider::ADMIN);
+        }
+
     }
 
     /**

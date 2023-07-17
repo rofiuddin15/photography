@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ashion | Template</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
@@ -87,6 +87,25 @@
     <script src="{{ asset('depan/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('depan/js/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ asset('depan/js/main.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.logout').on('click', function() {
+                // console.log('keluar');
+                let TOKEN = $("meta[name='csrf-token']").attr("content");
+                $.ajax({
+                    url: "{{ route('logout') }}",
+                    type: 'POST',
+                    data: {
+                        '_token': TOKEN,
+                    },
+                    success: function(res) {
+                        location.reload();
+                    }
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>
